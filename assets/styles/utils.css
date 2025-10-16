@@ -1,0 +1,55 @@
+.cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: rgb(194, 193, 193) 2px solid;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.container{
+   
+    width: 80%;
+    margin-bottom: 4rem;
+}
+
+.flash-message {
+    padding: 1rem 1.5rem;
+    margin: 1rem auto;
+    border-radius: 8px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+    &.success {
+        background-color: #e6f9e6;
+        border: 1px solid #7bd87b;
+        color: #2e7d32;
+    }
+
+    &.error {
+        background-color: #ffe6e6;
+        border: 1px solid #ff7373;
+        color: #c62828;
+    }
+
+    &.info {
+        background-color: #fff3cd;
+        border: 1px solid #ffeeba;
+        color: #856404;
+    }
+}
+
+.btn-save-article {
+  font-family: var(--font-text);
+  font-weight: bold;
+  color: #000000 !important;
+  font-size: 16px;
+  padding: 10px 25px;
+  border-radius: 15px;
+  border: 2px solid #908B91;
+  background: #E3E3E3;
+  background: linear-gradient(to top, #E3E3E3, #FFFFFF);
+}

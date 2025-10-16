@@ -1,0 +1,149 @@
+main{
+    display: flex;    
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+   font-family: var(--font-title);
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* TOP CONTAINER */
+
+.top-container {
+    display: flex;
+    gap: 3rem;
+    width: 100%;
+    height: 80vh;
+    font-family: var(--font-text);
+    color: var(--font-color);
+    
+       
+    .first-article {
+        display: flex;
+        justify-content: flex-start;
+        width: 40%;
+        height: 100%;
+        background-size:cover;
+        box-sizing: border-box;
+
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    }
+
+
+    .container-top-articles {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 60%;
+        height: 100%;
+
+        .second-one{
+            display: flex;
+            justify-content: flex-start;
+            width: 70%;
+            height: 35vh;
+            background-size:cover;
+
+            &:hover{
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.separator {
+    width: 100%;
+    height: 3px;
+    background-color: var(--font-color);
+}
+
+/* BOTTOM CONTAINER */
+
+h3 {
+    font-family: var(--font-title);
+    font-size: 2rem;
+}
+
+.bottom-container {
+width: 100%;
+font-family: var(--font-text);
+color: var(--font-color);
+
+    .container-bottom-articles {
+        display: flex;
+        gap: 2rem;
+
+        .bottom-one {
+            width: 30%;
+            height: 35vh;
+            display: flex;
+            justify-content: flex-end;
+            background-size:cover;
+
+            &:hover{
+                cursor: pointer;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+/* RESPONSIVE 
+
+@media screen and (min-width:768px) {
+    .top-container {
+        flex-direction: column;
+        height: 80%;
+          .first-article {
+            width: 100%;
+            height: 20vh;
+          }
+
+          .container-top-articles{
+             flex-direction: row ;
+             width: 100%;
+             height: auto;
+             .second-one {
+                width: 45%;
+                height: 20vh;
+             }
+          }
+    }
+
+    .bottom-container {
+
+        h3{
+            text-align: center;
+        }
+
+        .container-bottom-articles {
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+
+            .bottom-one {
+                width: 100%;
+                height: 15vh;
+            }
+        }
+    }
+
+} */

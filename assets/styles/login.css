@@ -1,0 +1,49 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    font-family: var(--font-title);
+    font-size: 3rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: var(--font-text);
+    color: var(--font-color);
+    width: 300px;
+}
+
+label {
+    font-size: 2rem;
+    font-family: var(--font-title);
+}
+
+input {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 3px solid var(--font-color);
+}
+
+.btn {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    text-decoration: none;
+    color: black;
+    border: 2px solid var(--font-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin-top: 1rem;
+
+    &:hover{
+        cursor: pointer;
+        background-color: var(--hover-color);
+        border-color: var(--primary-color);
+    }
+}

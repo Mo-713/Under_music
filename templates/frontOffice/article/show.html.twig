@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('article')}}
+
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('article')}}
+
+{% endblock %}
+
+{% block title %}Show article
+{% endblock %}
+
+{% block main %}
+	<main>
+		<article>
+			<div class="article-header" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 100%),  url('/images/articles/{{article.imageName is empty ? 'default.jpg' : article.imageName }}')">
+				<h1>{{article.title}}</h1>
+			</div>
+			<div class="article-content">
+				<p>{{article.content}}</p>
+				<p>{{article.category.name}}</p>
+			</div>
+			<a class="btn-back-list" href="{{path('app_listArticles')}}">Back</a>
+		</article>
+		<div class="separator"></div>
+		<div>
+			<h3>Same Category</h3>
+		</div>
+		<div class="bottom-container">
+			{% for article in articleByCateg %}
+
+				{# on verifie si l'article a une image, si non on affiche une image par defaut #}
+				{# on affiche les articles de la meme categorie que l'article en cours de consultation #}
+					{% if article.imageName is empty %}
+						<a class="cards bottom-one" style="background-image: url('/images/articles/default.jpg')" href="{{path('app_article', {id :article.id})}}"> <p>{{ article.title }}</p>
+					</a>
+
+				{% else %}
+					<a class="cards bottom-one" style="background-image: url('/images/articles/{{article.imageName}}')" href="{{path('app_article', {id :article.id})}}">
+						<p>{{ article.title }}</p>
+					</a>
+				{% endif %}
+
+			{% endfor %}
+		</div>
+	</main>
+
+
+{% endblock %}

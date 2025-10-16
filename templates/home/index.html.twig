@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('app') }}
+	{{ encore_entry_link_tags('home')}}
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('app') }}
+	{{ encore_entry_script_tags('home') }}
+
+{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block main %}
+	<main>
+		<div class="container">
+			<h1>Welcome</h1>
+
+			<section class="top-container">
+			<a class="cards first-article" style="background-image: url('./images/articles/{{articles[0].imageName}}')" href="{{path('app_article', {id :articles[0].id})}}">
+				<!--on target l'article le plus récent-->
+					{{articles[0].content}}
+				</a>
+				<div class="container-top-articles">
+
+					<a class="cards second-one" style="background-image: url('./images/articles/{{articles[1].imageName}}')" href="{{path('app_article', {id :articles[1].id})}}">
+						{{articles[1].content}}</a>
+
+					<a class="cards second-one" style="background-image: url('./images/articles/{{articles[2].imageName}}')" href="{{path('app_article', {id :articles[2].id})}}">
+						{{articles[2].content}}</a>
+				</div>
+			</section>
+			<div class="separator"></div>
+
+			<section class="bottom-container">
+				<div>
+					<h3>Autres Articles</h3>
+				</div>
+				<div class="container-bottom-articles">
+					{% for article in articles %}
+						{% if loop.index > 3 %}
+
+							{% if article.imageName is empty %}
+								<a class="cards bottom-one" style="background-image: url('./images/articles/default.jpg')" href="{{path('app_article', {id :article.id})}}">
+									<p>{{ article.title }}</p>
+								</a>
+
+							{% else %}
+								<a class="cards bottom-one" style="background-image: url('./images/articles/{{article.imageName}}')" href="{{path('app_article', {id :article.id})}}">
+									<p>{{ article.title }}</p>
+								</a>
+							{% endif %}
+
+
+						{% endif %}
+					{% endfor %}
+				</div>
+			</section>
+		</div>
+
+	</main>
+{% endblock %}

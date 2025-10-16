@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{parent()}}
+	{{ encore_entry_link_tags('createCategory')}}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+	{{ encore_entry_script_tags('createCategory') }}
+
+{% endblock %}
+
+{% block title %}Create a category
+{% endblock %}
+
+{% block main %}
+	<main>
+		<h1>Create a category</h1>
+
+		<div>
+			{{form_start(form)}}
+			{{form_row(form.name)}}
+			<button class="btn-save-categ">
+				{{ labelBtn|default('save')}}
+			</button>
+			{{form_end(form)}}
+		</div>
+
+	</main>
+{% endblock %}

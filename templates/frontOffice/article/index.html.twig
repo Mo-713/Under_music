@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{parent()}}
+	{{ encore_entry_link_tags('list')}}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+	{{ encore_entry_script_tags('list') }}
+
+
+{% endblock %}
+
+{% block main %}
+	<main>
+		<h1>Nos Articles</h1>
+		{% if app.user and "ROLE_ADMIN" in app.user.roles %}
+			<a class="create-link" href="{{path('admin_create_article')}}">
+				Create a new article</a>
+		{% endif %}
+
+		<div class="container">
+			{% for article in articles %}
+				<article class="cards" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 100%),  url('/images/articles/{{article.imageName is empty ? 'default.jpg' : article.imageName }}')">
+					<a href="{{path('app_article', {id : article.id})}}">
+
+						<h3>{{article.title}}</h3>
+						<p>{{article.content}}</p>
+						<p>{{article.id}}</p>
+						
+					</a>
+					{% if app.user and "ROLE_ADMIN" in app.user.roles %}
+					<div class="actions">
+							<a href="{{ path('admin_update_article',{id: article.id}) }}" class="btn">Update</a>
+							<form method="post" action="{{path('admin_delete_article', {id: article.id})}}" onsubmit="return confirm('Confirmer la supression ?')">
+								<input type="hidden" name="token" value="{{ csrf_token('delete' ~ article.id)}}">
+								<button class="btn-delete">Delete</button>
+							</form>
+					</div>
+					{% endif %}
+				</article>
+				
+			{% endfor %}
+		</div>
+
+	</main>
+
+{% endblock %}

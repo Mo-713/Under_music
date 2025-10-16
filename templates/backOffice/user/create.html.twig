@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Create an admin
+{% endblock %}
+
+{% block main %}
+
+	{{form_start(form)}}
+	<div class="form-control">
+		{{form_row(form.title)}}
+	</div>
+	<button>{{ labelBtn|default('Save') }}</button>
+	{{form_end(form)}}
+
+{% endblock %}

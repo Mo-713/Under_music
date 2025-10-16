@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{parent()}}
+	{{ encore_entry_link_tags('createArticle')}}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+	{{ encore_entry_script_tags('createArticle') }}
+
+{% endblock %}
+
+{% block title %}Create an article
+{% endblock %}
+
+{% block main %}
+	<main>
+		<h1>Create an article</h1>
+
+		<div class='form-group'>
+			{{form_start(form)}}
+			{{form_label(form.title)}}
+			{{form_widget(form.title)}}
+			{{form_errors(form.title)}}
+			
+		</div>
+
+		{{form_row(form.content)}}
+		{{form_row(form.enabled)}}
+		{{form_row(form.user)}}
+		{{form_row(form.category)}}
+		{{form_row(form.imageFile)}}
+
+		<button class="btn-save-article">{{ labelBtn|default('Save') }}</button>
+
+		{{form_end(form)}}
+
+	</main>
+{% endblock %}

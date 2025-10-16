@@ -1,0 +1,94 @@
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.actions{
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+.cards {
+    width: 22%;
+    height: 30vh;
+    background-size: cover;
+    transition: all 0.2s ease-in-out;
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-family: var(--font-text);
+    gap: 1rem;
+}
+
+/*Utils*/
+
+h1{
+    font-family: var(--font-title);
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.create-link {
+    color: var(--font-color);
+    font-family: var(--font-text);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+p{
+    color: var(--font-color);
+}
+
+.btn {
+    color: var(--font-color);
+    font-family: var(--font-text);
+    
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+.btn-delete {
+    font-family: var(--font-text);
+    font-size: 1rem;
+    color: var(--font-color);
+    border:none;
+    background-color: transparent;
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+        color: var(--hover-color);
+        font-weight: bolder;
+    }
+}
+
+
+/*Responsive*/
+
+@media screen and (max-width:768px) {
+
+    main {
+        background-color: blueviolet;
+    }
+    .container {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+    .cards {
+        width: 40%;
+        height: 15vh;
+        justify-content: flex-end;
+    }
+}

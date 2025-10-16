@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+	{% for user in users %}{% endfor %}
+	<div>
+		<a href="{{path('user_index')}}"></a>
+	</div>
+{% endblock %}

@@ -88,22 +88,17 @@ h1{
     margin-bottom: 1.5rem;
 }
 
-p{
-    color: var(--font-color);
-}
-
-.btn-update {
+.btn {
     color: var(--font-color);
     font-family: var(--font-text);
     transition: all 0.2s ease-in-out;
-
+    
     &:hover{
         cursor: pointer;
         transform: scale(1.1);
         color: var(--hover-update);
     }
 }
-
 .btn-delete {
     font-family: var(--font-text);
     font-size: 1rem;
@@ -117,25 +112,5 @@ p{
         transform: scale(1.1);
         color: var(--hover-color);
         font-weight: bolder;
-    }
-}
-
-
-/*Responsive*/
-
-@media screen and (max-width:768px) {
-
-    main {
-        background-color: blueviolet;
-    }
-    .container {
-        display: flex;
-        gap: 2rem;
-        margin-bottom: 4rem;
-    }
-    .cards {
-        width: 40%;
-        height: 15vh;
-        justify-content: flex-end;
     }
 }

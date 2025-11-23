@@ -33,7 +33,7 @@
 					</a>
 					{% if app.user and "ROLE_ADMIN" in app.user.roles %}
 					<div class="actions">
-							<a href="{{ path('admin_update_article',{id: article.id}) }}" class="btn">Update</a>
+							<a href="{{ path('admin_update_article',{id: article.id}) }}" class="btn-update">Update</a>
 							<form method="post" action="{{path('admin_delete_article', {id: article.id})}}" onsubmit="return confirm('Confirmer la supression ?')">
 								<input type="hidden" name="token" value="{{ csrf_token('delete' ~ article.id)}}">
 								<button class="btn-delete">Delete</button>

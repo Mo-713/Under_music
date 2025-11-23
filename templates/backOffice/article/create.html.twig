@@ -19,23 +19,38 @@
 	<main>
 		<h1>Create an article</h1>
 
+		{{form_start(form)}}
 		<div class='form-group'>
-			{{form_start(form)}}
-			{{form_label(form.title)}}
-			{{form_widget(form.title)}}
-			{{form_errors(form.title)}}
+			<div class="form-field">
+				{{form_label(form.title)}}
+				{{form_widget(form.title)}}
+				{{form_errors(form.title)}}
+			</div>
+
+			<div class="form-field">
+				{{form_label(form.content)}}
+				{{form_widget(form.content)}}
+				{{form_errors(form.content)}}
+			</div>
+
+			<div class="form-field">
+				{{form_row(form.category)}}
+			</div>
+
+			<div class="form-field">
+				{{form_row(form.imageFile)}}
+			</div>
+
+			<div class="form-options">
+				{{form_row(form.enabled)}}
+				{{form_row(form.user)}}
+			</div>
 			
+			<button type="submit" class="btn-save-article">{{ labelBtn|default('Save') }}</button>
 		</div>
-
-		{{form_row(form.content)}}
-		{{form_row(form.enabled)}}
-		{{form_row(form.user)}}
-		{{form_row(form.category)}}
-		{{form_row(form.imageFile)}}
-
-		<button class="btn-save-article">{{ labelBtn|default('Save') }}</button>
-
 		{{form_end(form)}}
 
+		<a class="btn-back-list" href="{{path('app_listArticles')}}">Back</a>
+		
 	</main>
 {% endblock %}

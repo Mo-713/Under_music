@@ -17,16 +17,24 @@
 
 {% block main %}
 	<main>
-		<h1>Create a category</h1>
+		<h1>Categories</h1>
 
-		<div>
-			{{form_start(form)}}
-			{{form_row(form.name)}}
-			<button class="btn-save-categ">
-				{{ labelBtn|default('save')}}
-			</button>
-			{{form_end(form)}}
+		{% if app.user and "ROLE_ADMIN" in app.user.roles %}
+			<a class="create-link" href="{{path('admin_create_category')}}">
+				Create a new category</a>
+		{% endif %}
+
+		{% for category in categories %}
+			<div class="category-card">
+				<h2>{{ category.name }}</h2>
+			{% if app.user and "ROLE_ADMIN" in app.user.roles %}
+				</div>
+			
+			<button type="submit" class="btn-save-categ">{{ labelBtn|default('Save') }}</button>
 		</div>
+			{% endif %}
 
+		{% endfor %}
+<a class="btn-back-list" href="{{path('admin_index_category')}}">Back</a>
 	</main>
 {% endblock %}

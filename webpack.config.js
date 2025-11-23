@@ -27,6 +27,7 @@ Encore
     .addEntry('login', './assets/script/login.js')
     .addEntry('createArticle', './assets/script/createArticle.js')
     .addEntry('createCategory', './assets/script/createCateg.js')
+    .addEntry('listCateg', './assets/script/listCateg.js')
 
 
 

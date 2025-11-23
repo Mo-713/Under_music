@@ -3,6 +3,18 @@
 {% block title %}List of categories
 {% endblock %}
 
+{% block stylesheets %}
+{{parent()}}
+	{{ encore_entry_link_tags('listCateg') }}
+
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+	{{ encore_entry_script_tags('listCateg') }}
+
+{% endblock %}
+
 {% block main %}
 	<main>
 		<h1>Categories</h1>
@@ -19,7 +31,7 @@
 				<div class="actions">
 					<a href="{{ path('admin_update_category',{id: category.id}) }}" class="btn">Update</a>
 					<form method="post" action="{{path('admin_delete_category', {id: category.id})}}" onsubmit="return confirm('Confirmer la supression ?')">
-						<input type="hidden" name="token" value="{{ csrf_token('delete' ~ category.id)}}">
+						
 						<button class="btn-delete">Delete</button>
 					</form>
 				</div>

@@ -17,15 +17,15 @@ class ArticleController extends AbstractController
 {
     public function __construct(private EntityManagerInterface $em, private ArticleRepository $articleRepository,) {}
 
-    // #[Route('/list', name: 'admin_index_article', methods: ['GET'])]
-    // public function index(): Response
-    // {
-    //     $articles = $this->articleRepository->findAll();
+    #[Route('/list', name: 'admin_index_article', methods: ['GET'])]
+    public function index(): Response
+    {
+        $articles = $this->articleRepository->findAll();
 
-    //     return $this->render('backOffice/article/index.html.twig', [
-    //         'articles' => $articles,
-    //     ]);
-    // }
+        return $this->render('backOffice/article/index.html.twig', [
+            'articles' => $articles,
+        ]);
+    }
 
     #[Route('/create', name: 'admin_create_article', methods: ['GET', 'POST'])]
     public function create(Request $request): Response

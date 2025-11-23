@@ -4,64 +4,22 @@ main{
     align-items: center;
 }
 
-h1{
+h1 {
     font-family: var(--font-title);
     font-size: 4rem;
     text-align: center;
-}
-
-.create-link{
-    font-family: var(--font-title);
-    font-size: 1.5rem;
-    color: var(--font-color);
-    text-decoration: none;
-}
-
-.actions{
-    display: flex;
-    gap: 1rem;
-    width: 100%;
-    justify-content: center;
-}
-
-.cards {
-    width: 22%;
-    height: 30vh;
-    background-size: cover;
-    transition: all 0.2s ease-in-out;
-
-    &:hover{
-        cursor: pointer;
-        transform: scale(1.1);
-    }
-}
-
-
-.cards {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.cards:hover {
-    transform: translateY(-5px);
-}
-
-.card-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.5rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    margin: 2rem 0 3rem;
     color: white;
 }
 
-.card-excerpt {
-    font-size: 0.9rem;
-    opacity: 0.9;
+.create-link {
+    display: flex;
+    justify-content: center;
+    font-family: var(--font-text);
+    font-size: 1.5rem;
+    color: var(--font-color);
+    text-decoration: none;
+    margin-bottom: 3rem;
 }
 
 .container {
@@ -72,33 +30,51 @@ h1{
     gap: 1rem;
 }
 
-/*Utils*/
+.category-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 15%;
+    height: 40%;
+    margin-bottom: 1rem;
+}
 
-h1{
-    font-family: var(--font-title);
-    font-size: 3rem;
+.category-card h2 {
+    align-items: center;
+    font-family: var(--font-text);
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+    margin: 0 0 2rem 0;
+}
+
+
+/* ACTIONS (BOUTONS UPDATE ET DELETE) */
+
+.actions {
     display: flex;
     justify-content: center;
+    gap: 1rem;
+    align-items: center;
 }
 
-.create-link {
-    color: var(--font-color);
-    font-family: var(--font-text);
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-}
 
-.btn {
+.btn-update {
     color: var(--font-color);
     font-family: var(--font-text);
     transition: all 0.2s ease-in-out;
-    
+
     &:hover{
         cursor: pointer;
         transform: scale(1.1);
-        color: var(--hover-update);
+        color: var(--hoover-update);
     }
 }
+
 .btn-delete {
     font-family: var(--font-text);
     font-size: 1rem;

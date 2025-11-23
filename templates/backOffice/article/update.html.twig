@@ -4,21 +4,21 @@
 	Update
 {% endblock %}
 
-{# {% block stylesheets %}
+{% block stylesheets %}
 {{parent()}}
-	{{ encore_entry_link_tags('')}}
+	{{ encore_entry_link_tags('updateArticle')}}
 
 {% endblock %}
 
 {% block javascripts %}
 {{parent()}}
-	{{ encore_entry_script_tags('') }}
+	{{ encore_entry_script_tags('updateArticle') }}
 
-{% endblock %} #}
+{% endblock %}
 
 {% block main %}
 	<main>
-		<h1>Create an article</h1>
+		<h1>Update an article</h1>
 
 		{{form_start(form)}}
 		<div class='form-group'>
@@ -51,7 +51,7 @@
 		</div>
 		{{form_end(form)}}
 
-		<a class="btn-back-list" href="{{path('app_listArticles')}}">Back</a>
+		<a class="btn-back-list" href="{{path('admin_index_article')}}">Back</a>
 		
 	</main>
 {% endblock %}

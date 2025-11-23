@@ -1,1 +1,1 @@
-import './styles/updateCateg.css';
+import '../styles/updateCateg.css';

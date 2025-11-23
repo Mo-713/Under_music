@@ -15,7 +15,7 @@
 
 {% block main %}
 	<main>
-		<h1>Nos Articles</h1>
+		<h1>Our Articles</h1>
 		{% if app.user and "ROLE_ADMIN" in app.user.roles %}
 			<a class="create-link" href="{{path('admin_create_article')}}">
 				Create a new article</a>

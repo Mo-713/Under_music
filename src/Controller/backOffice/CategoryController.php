@@ -11,20 +11,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/admin/category')]
+#[Route('/admin/category')] //prefix
 class CategoryController extends AbstractController
 {
 
-    public function __construct(private EntityManagerInterface $em, private CategoryRepository $categoryRepository){}
+    public function __construct(private EntityManagerInterface $em, private CategoryRepository $categoryRepository){} //injection de dépendance
 
-    #[Route('/list', name: 'admin_index_category', methods: ['GET'])]
+    #[Route('/list', name: 'admin_index_category', methods: ['GET'])] //route
     public function index(CategoryRepository $categoryRepository): Response
-    {
-        $categories = $this->categoryRepository->findAll();
-        return $this->render('/backOffice/categ/index.html.twig', [
-            'categories' => $categories,
-        ]);
-    }
+{
+  return $this->render('backOffice/categ/index.html.twig', [
+    'categories' => $categoryRepository->findAll(),
+]);
+}
 
     #[Route('/create', name: 'admin_create_category', methods: ['GET','POST'])]
     public function create(Request $request): Response

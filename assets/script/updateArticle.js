@@ -1,1 +1,1 @@
-import './styles/updateArticle.css';
+import '../styles/updateArticle.css';

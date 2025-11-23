@@ -43,10 +43,10 @@ h1{
     background-position: center;
     overflow: hidden;
     transition: transform 0.3s ease;
-}
 
-.cards:hover {
-    transform: translateY(-5px);
+    &:hover {
+        transform: scale(1.1)
+    }
 }
 
 .card-content {
@@ -90,6 +90,8 @@ h1{
 
 p{
     color: var(--font-color);
+    font-family: var(--font-text);
+    font-size: 1rem;
 }
 
 .btn-update {
@@ -100,7 +102,7 @@ p{
     &:hover{
         cursor: pointer;
         transform: scale(1.1);
-        color: var(--hover-update);
+        color: var(--hoover-update);
     }
 }
 

@@ -10,7 +10,8 @@ h1 {
 }
 
 .form-group {
-    max-width: 800px;
+    width: 60%;
+    height: 100%;
     margin: 2rem;
     padding: 3rem;
     background-color: rgba(0, 0, 0, 0.5);
@@ -19,11 +20,17 @@ h1 {
     color: var(--font-color);
 }
 
+.form-field{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 label {
     font-family: var(--font-text);
     font-size: 1.2rem;
     color: var(--font-color);
-    margin-bottom: 0.5rem;
+    gap: 1rem;
 }
 
 input[type="text"], textarea, select {
@@ -35,18 +42,27 @@ input[type="text"], textarea, select {
     width: 100%;
     gap: 2rem;
     background-color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
 }
 
-label{
-    font-family: var(--font-text);
-    font-size: 1.2rem;
+input[type="file"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: var(--primary-color);
+    border: 2px solid #000000;
+    box-shadow: 3px 4px 2px 0px #7f6a3d;
+    border-radius: 10px;
+    width: 100%;
+    gap: 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
 }
 
 .btn-save-article {
     border: none;
     font-size: 1.2rem;
     font-weight: bolder;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 0.8rem 1.2rem;
     transition: all 0.2s ease-in-out;
     margin-top: 1rem;
@@ -58,10 +74,12 @@ label{
 }
 
 .btn-back-list {
-    color: var(primary-color);
+    color: var(--primary-color);
     text-decoration: none;
     font-family: var(--font-text);
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: bolder;
+    transition: all 0.2s ease-in-out;
     margin-bottom: 1.5rem;
 
     &:hover{

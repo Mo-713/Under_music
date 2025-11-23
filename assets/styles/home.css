@@ -8,6 +8,7 @@ main {
 h1 {
     font-family: var(--font-title);
     font-size: 4rem;
+    color: var(--font-color);
     text-align: center;
     margin: 2rem 0 3rem;
     height: auto;

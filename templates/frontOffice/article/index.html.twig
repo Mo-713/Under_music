@@ -1,16 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-{{parent()}}
+	{{parent()}}
 	{{ encore_entry_link_tags('list')}}
 
 {% endblock %}
 
 {% block javascripts %}
-{{parent()}}
+	{{parent()}}
 	{{ encore_entry_script_tags('list') }}
-
-
+	{{ encore_entry_script_tags('messageFlash')}}
 {% endblock %}
 
 {% block main %}
@@ -28,19 +27,19 @@
 
 						<h3>{{article.title}}</h3>
 						<p>{{article.content}}</p>
-						
+
 					</a>
 					{% if app.user and "ROLE_ADMIN" in app.user.roles %}
-					<div class="actions">
+						<div class="actions">
 							<a href="{{ path('admin_update_article',{id: article.id}) }}" class="btn-update">Update</a>
 							<form method="post" action="{{path('admin_delete_article', {id: article.id})}}" onsubmit="return confirm('Confirmer la supression ?')">
 								<input type="hidden" name="token" value="{{ csrf_token('delete' ~ article.id)}}">
 								<button class="btn-delete">Delete</button>
 							</form>
-					</div>
+						</div>
 					{% endif %}
 				</article>
-				
+
 			{% endfor %}
 		</div>
 

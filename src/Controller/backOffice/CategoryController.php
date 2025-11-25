@@ -70,6 +70,7 @@ class CategoryController extends AbstractController
 
         return $this->render('/backOffice/categ/update.html.twig', [
             'form' => $form,
+            'category' => $category
         ]);
     }
 

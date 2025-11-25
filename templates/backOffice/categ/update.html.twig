@@ -1,28 +1,34 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-{% block title %} Update
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('updateCateg') }}
 {% endblock %}
 
+{% block javascripts %}
+	{{parent()}}
+	{{ encore_entry_script_tags('updateCateg') }}
+{% endblock %}
+
+{% block title %} Update {% endblock %}
+
 {% block main %}
-	<main>
-		<h1>Categories</h1>
+    <main>
+        <h1>Update Category</h1>
+        {# Supprimer la boucle, afficher directement la catégorie #}
+        <div class="category-card">
+            <h2>{{ category.name }}</h2>
+            
+            {% if app.user and "ROLE_ADMIN" in app.user.roles %}
+                {# Votre formulaire ici #}
+                {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button type="submit" class="btn-save-categ">Save</button>
+                {{ form_end(form) }}
+            {% endif %}
+        </div>
 
-		{% if app.user and "ROLE_ADMIN" in app.user.roles %}
-			<a class="create-link" href="{{path('admin_create_category')}}">
-				Create a new category</a>
-		{% endif %}
-
-		{% for category in categories %}
-			<div class="category-card">
-				<h2>{{ category.name }}</h2>
-			{% if app.user and "ROLE_ADMIN" in app.user.roles %}
-				</div>
-			
-			<button type="submit" class="btn-save-categ">{{ labelBtn|default('Save') }}</button>
-		</div>
-			{% endif %}
-
-		{% endfor %}
-<a class="btn-back-list" href="{{path('admin_index_category')}}">Back</a>
-	</main>
+        <a class="btn-back-list" href="{{ path('admin_index_category') }}">
+            Back</a>
+    </main>
 {% endblock %}

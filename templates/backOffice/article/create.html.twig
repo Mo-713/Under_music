@@ -9,7 +9,6 @@
 {% block javascripts %}
 {{parent()}}
 	{{ encore_entry_script_tags('createArticle') }}
-
 {% endblock %}
 
 {% block title %}Create an article
@@ -39,6 +38,7 @@
 
 			<div class="form-field">
 				{{form_row(form.imageFile)}}
+				
 			</div>
 
 			<div class="form-options">

@@ -30,6 +30,7 @@ Encore
     .addEntry('listCateg', './assets/script/listCateg.js')
     .addEntry('updateArticle', './assets/script/updateArticle.js')
     .addEntry('updateCateg', './assets/script/updateCateg.js')
+    .addEntry('messageFlash', './assets/script/messageFlash.js')
 
 
 

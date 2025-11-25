@@ -20,10 +20,10 @@ class ArticleController extends AbstractController
     #[Route('/list', name: 'admin_index_article', methods: ['GET'])]
     public function index(ArticleRepository $articleRepository): Response
     {
-        $articles = $this->articleRepository->findAll();//permet de trouver tous les articles//
+        $articles = $this->articleRepository->findAll(); //permet de trouver tous les articles//
 
         return $this->render('backOffice/article/index.html.twig', [
-            'articles' => $articles,//permet d'afficher tous les articles//
+            'articles' => $articles, //permet d'afficher tous les articles//
         ]);
     }
 
@@ -75,7 +75,7 @@ class ArticleController extends AbstractController
 
     //Suppression d'un article//
     #[Route('/{id}/delete', name: 'admin_delete_article', methods: ['POST'])]
-    public function delete(Article $article, Request $request): Response 
+    public function delete(Article $article, Request $request): Response
     {
         if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('token'))) { //permet de valider le token//
             $this->em->remove($article); //suppression de l'article//

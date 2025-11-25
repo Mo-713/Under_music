@@ -38,8 +38,8 @@ input[type="text"], textarea, select {
 }
 
 .btn-save-categ {
-    background-color: #7f6a3d;
-    color: var(--font-color);
+    background-color:var(--font-color);
+    color: var(--primary-color);
     border: none;
     font-size: 1.2rem;
     font-weight: bolder;
@@ -51,5 +51,21 @@ input[type="text"], textarea, select {
     &:hover {
         cursor: pointer;
         transform: scale(1.1);
+    }
+}
+
+.btn-back-list{
+    color: var(--primary-color);
+    text-decoration: none;
+    font-family: var(--font-text);
+    font-size: 2rem;
+    font-weight: bolder;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 1.5rem;
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+        color: #766339
     }
 }

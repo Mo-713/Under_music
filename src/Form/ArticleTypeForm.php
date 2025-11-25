@@ -22,13 +22,13 @@ class ArticleTypeForm extends AbstractType
                 'attr' => [
                     'class' => 'form-control',
                 ],
-                
+
             ])
-            
+
             ->add('content')
-            
+
             ->add('enabled')
-            
+
             ->add('user', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'id',
@@ -38,11 +38,12 @@ class ArticleTypeForm extends AbstractType
                 'choice_label' => 'name',
             ])
             ->add('imageFile', VichImageType::class, [
-                'required' => true,
+                'required' => false,// Important pour l'update !
                 'download_uri' => false,
                 'image_uri' => true,
                 'asset_helper' => true,
-                'label' => 'Image (JPG or PNG file)',
+                'label' => 'Image (JPG or PNG file)', 
+                'allow_delete' => true,
             ])
         ;
     }

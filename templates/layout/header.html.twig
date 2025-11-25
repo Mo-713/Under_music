@@ -1,29 +1,30 @@
 <header>
-    <p class="blog-title">
-    <a href="{{path('app_home')}}">Under Music</a>
-    </p>
-    <div class="navbar">
-        <ul class="navbar-list">
-            <li class="navbar-link">
-                <a href="{{path('app_home')}}" class="link">Home</a>
-            </li>
-            <li class="navbar-link">
-                <a href="{{path('app_listArticles')}}" class="link">Articles</a>
-            </li>
-            {% if app.user and "ROLE_ADMIN" in app.user.roles %}
-            <li class="navbar-link">
-                <a href="{{path('admin_index_category')}}" class="link">Categories</a>
-            </li>
-            {% endif %}
-        </ul>
-    </div>
-    <div class="connexion">
-        <img src={{asset("/img/icones/user.svg")}} alt="user" class="icons">
-        {% if app.user %}
-        <a href="{{ path('app_logout') }}">Log Out</a>
-        {% else %}
-            <a href="{{path('app_login')}}" class="log">Log In</a>
-        {% endif %}
-    </div>
-    
-</header>
+	<p class="blog-title">
+		<a href="{{path('app_home')}}">Under Music</a>
+	</p>
+
+		<div class="navbar">
+			<ul class="navbar-list">
+				<li class="navbar-link">
+					<a href="{{path('app_home')}}" class="link">Home</a>
+				</li>
+				<li class="navbar-link">
+					<a href="{{path('app_listArticles')}}" class="link">Articles</a>
+				</li>
+				{% if app.user and "ROLE_ADMIN" in app.user.roles %}
+					<li class="navbar-link">
+						<a href="{{path('admin_index_category')}}" class="link">Categories</a>
+					</li>
+				{% endif %}
+			</ul>
+		</div>
+		<div class="connexion">
+			<img src={{asset("/img/icones/user.svg")}} alt="user" class="icons">
+			{% if app.user %}
+				<a href="{{ path('app_logout') }}">Log Out</a>
+			{% else %}
+				<a href="{{path('app_login')}}" class="log">Log In</a>
+			{% endif %}
+		</div>
+
+	</header>

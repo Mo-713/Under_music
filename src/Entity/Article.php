@@ -62,8 +62,7 @@ class Article
     #[ORM\Column]
     private ?int $imageSize = null;
 
-
-
+    
     public function __construct() {}
 
     public function getId(): ?int

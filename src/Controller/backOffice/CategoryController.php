@@ -14,29 +14,30 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/admin/category')] //prefix
 class CategoryController extends AbstractController
 {
-
-    public function __construct(private EntityManagerInterface $em, private CategoryRepository $categoryRepository){} //injection de dépendance
+    public function __construct(private EntityManagerInterface $em, private CategoryRepository $categoryRepository) {} //injection de dépendance
 
     #[Route('/list', name: 'admin_index_category', methods: ['GET'])] //route
     public function index(CategoryRepository $categoryRepository): Response
-{
-  return $this->render('backOffice/categ/index.html.twig', [
-    'categories' => $categoryRepository->findAll(),
-]);
-}
+    {
+        $categories= $this->categoryRepository->findAll();
 
-    #[Route('/create', name: 'admin_create_category', methods: ['GET','POST'])]
+        return $this->render(view: 'backOffice/categ/index.html.twig', parameters: [
+            'categories' => $categoryRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/create', name: 'admin_create_category', methods: ['GET', 'POST'])]
     public function create(Request $request): Response
     {
         $category = new Category();
+
         //passe le formulaire et l'entité category pour l'hydrater/ le mapper//
         $form = $this->createForm(CategoryTypeForm::class, $category);
-
         $form->handleRequest($request); //hydrate la requête. Envoie les données à l'objet request en méthode post//
 
         //Contrainte de soumission et de validation//
         if ($form->isSubmitted() && $form->isValid()) {
-           // $category = $form->getData();
+            // $category = $form->getData();
             $this->em->persist($category);
             $this->em->flush();
 

@@ -23,11 +23,11 @@ class Article
     private ?int $id = null;
 
 
-    #[Assert\NotBlank(message:"Veuillez saisir le titre de l'article")]
+    #[Assert\NotBlank(message: "Veuillez saisir le titre de l'article")]
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $title = null;
 
-    #[Assert\NotBlank(message:"Veuillez saisir le contenu de l'article")]
+    #[Assert\NotBlank(message: "Veuillez saisir le contenu de l'article")]
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $content = null;
 
@@ -46,13 +46,16 @@ class Article
     #[ORM\ManyToOne(inversedBy: 'articles')]
     private ?Category $category = null;
 
-   #[Assert\Image (maxSize: "2M", mimeTypes: ["image/jpeg", "image/png", "image/webp"], 
-   mimeTypesMessage: "Please upload a valid JPG, WEBP or PNG image", 
-   maxSizeMessage: "The maximum allowed file size is 2MB.")]
+    #[Assert\Image(
+        maxSize: "2M",
+        mimeTypes: ["image/jpeg", "image/png", "image/webp"],
+        mimeTypesMessage: "Please upload a valid JPG, WEBP or PNG image",
+        maxSizeMessage: "The maximum allowed file size is 2MB."
+    )]
     #[Vich\UploadableField(mapping: 'articles_images', fileNameProperty: 'imageName', size: 'imageSize')]
     private ?File $imageFile = null;
 
-    #[Assert\NotBlank(message:"Veuillez ajouter une image")]
+    #[Assert\NotBlank(message: "Veuillez ajouter une image")]
     #[ORM\Column(nullable: false)]
     private ?string $imageName = null;
 
@@ -61,10 +64,7 @@ class Article
 
 
 
-    public function __construct()
-    {
-       
-    }
+    public function __construct() {}
 
     public function getId(): ?int
     {
@@ -154,7 +154,7 @@ class Article
 
         return $this;
     }
-    
+
     #[ORM\PrePersist]
     public function autoCreateAt(): void
     {

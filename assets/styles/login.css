@@ -1,6 +1,17 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
 main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    margin-bottom: 3rem;
 }
 
 h1{
@@ -16,8 +27,16 @@ h1{
     gap: 1rem;
     font-family: var(--font-text);
     color: var(--font-color);
-    width: 300px;
+    width: 60%;
+    height: 100%;
+    margin: 2rem;
+    padding: 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 3px solid #7f6a3d;
+    border-radius: 10px;
+    color: var(--font-color);
 }
+
 
 label {
     font-size: 2rem;

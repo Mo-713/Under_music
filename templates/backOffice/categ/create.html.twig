@@ -1,15 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-{{parent()}}
-	{{ encore_entry_link_tags('createCategory')}}
-
+	{{parent()}}
+	{{ encore_entry_link_tags('createCategory') }}
 {% endblock %}
 
 {% block javascripts %}
-{{parent()}}
+	{{parent()}}
 	{{ encore_entry_script_tags('createCategory') }}
-
 {% endblock %}
 
 {% block title %}Create a category
@@ -17,24 +15,29 @@
 
 {% block main %}
 	<main>
-		<h1>Categories</h1>
+		<h1>Create a Category</h1>
 
 		{% if app.user and "ROLE_ADMIN" in app.user.roles %}
-			<a class="create-link" href="{{path('admin_create_category')}}">
-				Create a new category</a>
+			<div class="form-container">
+				{{ form_start(form) }}
+
+				<div class="form-group">
+					{{ form_label(form.name) }}
+					{{ form_widget(form.name) }}
+					{{ form_errors(form.name) }}
+
+					<button type="submit" class="btn-save-categ">
+						{{ labelBtn|default('Save') }}
+					</button>
+				</div>
+
+				{{ form_end(form) }}
+			</div>
 		{% endif %}
 
-		{% for category in categories %}
-			<div class="category-card">
-				<h2>{{ category.name }}</h2>
-			{% if app.user and "ROLE_ADMIN" in app.user.roles %}
-				</div>
-			
-			<button type="submit" class="btn-save-categ">{{ labelBtn|default('Save') }}</button>
-		</div>
-			{% endif %}
+		<a class="btn-back-list" href="{{ path('admin_index_category') }}">
+			Back
+		</a>
 
-		{% endfor %}
-<a class="btn-back-list" href="{{path('admin_index_category')}}">Back</a>
 	</main>
 {% endblock %}
